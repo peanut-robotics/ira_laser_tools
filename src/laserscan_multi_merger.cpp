@@ -160,6 +160,7 @@ void LaserscanMerger::scanCallback(const sensor_msgs::LaserScan::ConstPtr &scan,
 	}
 	catch (tf::TransformException ex)
 	{
+		ROS_WARN_STREAM("no transform from " << scan->header.frame_id << " -> " <<  destination_frame);
 		return;
 	}
 

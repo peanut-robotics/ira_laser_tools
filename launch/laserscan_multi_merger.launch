@@ -6,8 +6,8 @@
 	<param name="cloud_destination_topic" value="/merged_cloud"/>
 	<param name="scan_destination_topic" value="/oil/navigation/combined_front_base_lidar"/>
 	<param name="laserscan_topics" value ="/oil/navigation/front_lidar/scan_filtered /oil/navigation/base_lidar/scan_filtered" /> <!-- LIST OF THE LASER SCAN TOPICS TO SUBSCRIBE -->
-	<param name="angle_min" value="-3.14"/>
-	<param name="angle_max" value="3.14"/>
+	<param name="angle_min" value="-3.14159"/>
+	<param name="angle_max" value="3.14159"/>
 	<param name="angle_increment" value="0.0058"/>
 	<param name="scan_time" value="0.0333333"/>
 	<param name="range_min" value="0.30"/>

@@ -228,7 +228,7 @@ void LaserscanMerger::pointcloud_to_laserscan(Eigen::MatrixXf points, pcl::PCLPo
 
 		if (std::isnan(x) || std::isnan(y) || std::isnan(z))
 		{
-			ROS_DEBUG("rejected for nan in point(%f, %f, %f)\n", x, y, z);
+			ROS_DEBUG_THROTTLE(1.0, "rejected for nan in point(%f, %f, %f)\n", x, y, z);
 			continue;
 		}
 
@@ -236,14 +236,14 @@ void LaserscanMerger::pointcloud_to_laserscan(Eigen::MatrixXf points, pcl::PCLPo
 		double range_min_sq_ = output->range_min * output->range_min;
 		if (range_sq < range_min_sq_)
 		{
-			ROS_DEBUG("rejected for range %f below minimum value %f. Point: (%f, %f, %f)", range_sq, range_min_sq_, x, y, z);
+			ROS_DEBUG_THROTTLE(1.0, "rejected for range %f below minimum value %f. Point: (%f, %f, %f)", range_sq, range_min_sq_, x, y, z);
 			continue;
 		}
 
 		double angle = atan2(y, x);
 		if (angle < output->angle_min || angle > output->angle_max)
 		{
-			ROS_DEBUG("rejected for angle %f not in range (%f, %f)\n", angle, output->angle_min, output->angle_max);
+			ROS_DEBUG_THROTTLE(1.0, "rejected for angle %f not in range (%f, %f)\n", angle, output->angle_min, output->angle_max);
 			continue;
 		}
 		int index = (angle - output->angle_min) / output->angle_increment;

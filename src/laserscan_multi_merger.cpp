@@ -180,6 +180,8 @@ void LaserscanMerger::scanCallback(const sensor_msgs::LaserScan::ConstPtr &scan,
 		if (clouds_modified[i])
 			totalClouds++;
 
+	ROS_INFO_STREAM_THROTTLE(0.25, "scanCallback " << totalClouds << " of " << clouds_modified.size());
+
 	// Go ahead only if all subscribed scans have arrived
 	if (totalClouds == clouds_modified.size())
 	{
